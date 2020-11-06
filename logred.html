@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <body style="background-color:#4d4d4d;">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #212121;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #7a7171;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+</style>
+
+</head>
+
+<div class="sidenav">
+  <a href="index.html">Home
+<body></a>
+  <a href="main.html">Main Chat</a>
+      <a href="logred.html">Account</a>
+      <a href="tts.html">TTS</a>
+  <a href="more.html">More</a>
+</div>
+
+<div class="main">
+  <iframe src="https://1212121212.ryangardiner1.repl.co" height="270" width="600" title="reglog"></iframe>
+</div>
+<script>
+  var selem = document.currentScript;
+
+if (location.protocol !== 'https:') {
+  var err = document.createElement('div');
+  err.className = "replit-auth-error";
+  err.textContent = 'ERROR: HTTPS is required.';
+  selem.parentNode.insertBefore(err, selem);
+  function join() {
+    button = document.getElementById("linked")
+    button.innerText = "ERROR: HTTPS is required."
+  }
+} else {
+  // onpointerdown="ripplet(arguments[0])"
+  var button = document.createElement('button');
+  button.className = "button-primary";
+  button.textContent = 'Login';
+  button.style.cursor = 'pointer';
+  button.style.width = '100px'
+
+  function join() {
+    button.click()
+  }
+}
+
+button.onclick = function() {
+  window.addEventListener('message', authComplete);
+
+  var h = 500;
+  var w = 450;
+  var left = (screen.width / 2) - (w / 2);
+  var top = (screen.height / 2) - (h / 2);
+
+  var authWindow = window.open(
+    'https://repl.it/auth_with_repl_site?domain=' + location.host,
+    '')
+
+  function authComplete(e) {
+    if (e.data !== 'auth_complete') {
+      return;
+    }
+
+    window.removeEventListener('message', authComplete);
+    authWindow.close();
+    if (selem.attributes.authed.value) {
+      eval(selem.attributes.authed.value);
+    } else {
+      location.reload();
+    }
+  }
+}
+
+selem.parentNode.insertBefore(button, selem);
+</script>
+     <div class="main">
+</body>
+</html> 
